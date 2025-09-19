@@ -29,3 +29,7 @@ dependencyResolutionManagement {
 }
 
 include(":composeApp")
+include(":feature")
+include(":feature:main-screen")
+include(":feature:main-screen:main-screen-impl")
+include(":feature:main-screen:main-screen-api")

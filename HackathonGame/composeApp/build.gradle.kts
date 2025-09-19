@@ -4,8 +4,12 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidApplication)
-    alias(libs.plugins.composeMultiplatform)
-    alias(libs.plugins.composeCompiler)
+    alias(libs.plugins.jetbrainsCompose)
+    alias(libs.plugins.compose.compiler)
+}
+
+compose.resources {
+    generateResClass = never
 }
 
 kotlin {
@@ -26,22 +30,35 @@ kotlin {
     }
     
     sourceSets {
-        androidMain.dependencies {
-            implementation(compose.preview)
-            implementation(libs.androidx.activity.compose)
-        }
         commonMain.dependencies {
+//            implementation(projects.common.logger)
+//            implementation(projects.common.mvi.mviGeneral)
+//            implementation(projects.common.mvi.mviKoinVoyager)
+//            implementation(projects.core.network)
+//            implementation(projects.core.recources)
+//            implementation(projects.core.database)
+//            implementation(projects.components.dogs)
+//            implementation(projects.features.mainScreen.mainScreenApi)
+//            implementation(projects.features.mainScreen.mainScreenImpl)
+//            implementation(projects.features.dogScreens.dogScreensImpl)
             implementation(compose.runtime)
             implementation(compose.foundation)
             implementation(compose.material3)
             implementation(compose.ui)
-            implementation(compose.components.resources)
-            implementation(compose.components.uiToolingPreview)
-            implementation(libs.androidx.lifecycle.viewmodelCompose)
-            implementation(libs.androidx.lifecycle.runtimeCompose)
+            implementation(libs.koin.core)
+            implementation(libs.koin.compose)
+            implementation(libs.voyager.koin)
+            implementation(libs.voyager.screenModel)
+            implementation(libs.voyager.navigator)
         }
-        commonTest.dependencies {
-            implementation(libs.kotlin.test)
+        androidMain.dependencies {
+            implementation(libs.androidx.activity.compose)
+            implementation(libs.compose.ui)
+            implementation(libs.compose.material3)
+            implementation(libs.compose.ui.tooling.preview)
+            implementation(libs.koin.android)
+            implementation(libs.koin.android.compose)
+            implementation(libs.koin.android.navigation)
         }
     }
 }
