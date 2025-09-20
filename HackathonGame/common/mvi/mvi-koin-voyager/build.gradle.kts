@@ -17,23 +17,32 @@ kotlin {
 
     sourceSets {
         commonMain.dependencies {
+            implementation(projects.common.mvi.mviGeneral)
+            implementation(projects.common.logger)
+            implementation(projects.common.utils)
+
+            implementation(libs.kotlinx.coroutines.core)
+
             implementation(compose.runtime)
-            implementation(compose.foundation)
-            implementation(compose.material3)
-            implementation(compose.ui)
+
+            implementation(libs.koin.core)
 
             implementation(libs.voyager.koin)
             implementation(libs.voyager.screenModel)
+        }
+        iosMain.dependencies {
+            implementation(libs.touchlab.stately.common)
+            implementation(libs.compose.runtime.saveable)
         }
     }
 }
 
 android {
-    namespace = "com.coding.game.feature.main_screen.api"
+    namespace = "com.coding.common.mvi.impl"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
     defaultConfig { minSdk = libs.versions.android.minSdk.get().toInt() }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
     }
 }
