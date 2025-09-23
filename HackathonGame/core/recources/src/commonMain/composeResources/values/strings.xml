@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--> COMMON <-->
+    <string name="app_name">KMP_Game</string>
+    <string name="back">Back</string>
+
+    <!--> MAIN_SCREEN <-->
+    <string name="main_screen_title">Main Screen</string>
+
+</resources>
