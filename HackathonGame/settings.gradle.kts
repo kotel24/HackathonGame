@@ -38,9 +38,12 @@ include(":common:logger")
 include(":common:utils")
 
 // FEATURES
-include(":features:main-screen:main-screen-api")
-include(":features:main-screen:main-screen-impl")
+include(":feature:main-screen:main-screen-api")
+include(":feature:main-screen:main-screen-impl")
 
 // CORE
 include(":core:network")
 include(":core:recources")
+
+// COMPONENTS
+include(":components:pet")

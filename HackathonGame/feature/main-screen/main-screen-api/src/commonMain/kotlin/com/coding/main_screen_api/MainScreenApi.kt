@@ -1,4 +1,4 @@
-package com.coding.game
+package com.coding.main_screen_api
 
 import cafe.adriel.voyager.core.screen.Screen
 

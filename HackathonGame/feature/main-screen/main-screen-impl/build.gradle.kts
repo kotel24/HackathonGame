@@ -17,12 +17,11 @@ kotlin {
 
     sourceSets {
         commonMain.dependencies {
-//            implementation(projects.common.logger)
-//            implementation(projects.common.mvi.mviGeneral)
-//            implementation(projects.common.mvi.mviKoinVoyager)
-//            implementation(projects.core.recources)
-//            implementation(projects.features.mainScreen.mainScreenApi)
-//            implementation(projects.features.dogScreens.dogScreensApi)
+            implementation(projects.common.logger)
+            implementation(projects.common.mvi.mviGeneral)
+            implementation(projects.common.mvi.mviKoinVoyager)
+            implementation(projects.core.recources)
+            implementation(projects.feature.mainScreen.mainScreenApi)
 
             implementation(libs.kotlinx.coroutines.core)
 
