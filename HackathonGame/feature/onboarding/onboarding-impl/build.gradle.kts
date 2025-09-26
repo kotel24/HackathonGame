@@ -21,6 +21,7 @@ kotlin {
             implementation(projects.common.mvi.mviGeneral)
             implementation(projects.common.mvi.mviKoinVoyager)
             implementation(projects.core.recources)
+            implementation(projects.feature.onboarding.onboardingApi)
             implementation(projects.feature.mainScreen.mainScreenApi)
 
             implementation(libs.kotlinx.coroutines.core)
@@ -41,7 +42,7 @@ kotlin {
 }
 
 android {
-    namespace = "com.coding.game.feature.main_screen.impl"
+    namespace = "com.coding.game.feature.onboarding.impl"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
     defaultConfig { minSdk = libs.versions.android.minSdk.get().toInt() }
     compileOptions {

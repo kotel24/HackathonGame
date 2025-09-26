@@ -38,6 +38,8 @@ kotlin {
             implementation(projects.core.recources)
             implementation(projects.feature.mainScreen.mainScreenApi)
             implementation(projects.feature.mainScreen.mainScreenImpl)
+            implementation(projects.feature.onboarding.onboardingApi)
+            implementation(projects.feature.onboarding.onboardingImpl)
             implementation(projects.components.pet)
 
             implementation(compose.runtime)

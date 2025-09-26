@@ -40,6 +40,8 @@ include(":common:utils")
 // FEATURES
 include(":feature:main-screen:main-screen-api")
 include(":feature:main-screen:main-screen-impl")
+include(":feature:onboarding:onboarding-api")
+include(":feature:onboarding:onboarding-impl")
 
 // CORE
 include(":core:network")

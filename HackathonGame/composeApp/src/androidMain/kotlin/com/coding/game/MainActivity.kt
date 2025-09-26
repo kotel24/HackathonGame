@@ -7,6 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.material3.MaterialTheme
 import cafe.adriel.voyager.navigator.Navigator
 import com.coding.main_screen_api.MainScreenApi
+import com.coding.onboarding.onboarding_api.OnboardingApi
 import org.koin.compose.koinInject
 
 class MainActivity : ComponentActivity() {
@@ -16,9 +17,10 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             val mainScreenFeatureApi = koinInject<MainScreenApi>()
+            val onboardingFeatureApi = koinInject<OnboardingApi>()
             MaterialTheme {
                 Navigator(
-                    mainScreenFeatureApi.mainScreen()
+                    onboardingFeatureApi.onboardingScreen()
                 )
             }
         }
