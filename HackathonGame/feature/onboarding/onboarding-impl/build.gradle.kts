@@ -21,6 +21,7 @@ kotlin {
             implementation(projects.common.mvi.mviGeneral)
             implementation(projects.common.mvi.mviKoinVoyager)
             implementation(projects.core.recources)
+            implementation(projects.core.settings)
             implementation(projects.feature.onboarding.onboardingApi)
             implementation(projects.feature.mainScreen.mainScreenApi)
 

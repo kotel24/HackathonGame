@@ -46,6 +46,7 @@ include(":feature:onboarding:onboarding-impl")
 // CORE
 include(":core:network")
 include(":core:recources")
+include(":core:settings")
 
 // COMPONENTS
 include(":components:pet")
