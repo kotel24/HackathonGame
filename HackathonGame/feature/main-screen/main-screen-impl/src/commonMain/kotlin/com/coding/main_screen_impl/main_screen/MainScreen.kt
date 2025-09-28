@@ -29,7 +29,8 @@ internal class MainScreen : MviView<MainScreenAction, MainScreenEvent, MainScree
         }
 
         MainScreenContent(
-            onClickButton = {}
+            onPlayClick = {},
+            onDailyTasksClick = {}
         )
     }
 }
