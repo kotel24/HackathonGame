@@ -8,7 +8,7 @@ plugins {
 compose.resources {
     publicResClass = true
     packageOfResClass = "ru.braveowlet.simple_mvi_example.core.resources"
-    generateResClass = auto
+    generateResClass = always
 }
 
 kotlin {
