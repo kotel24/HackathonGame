@@ -17,8 +17,8 @@ internal class OnboardingModel(
     override suspend fun actor(action: OnboardingAction) {
         when (action) {
             is OnboardingAction.ClickButtonToMainScreen -> {
-                println("!!! Сохраняю статус онбординга: ЗАВЕРШЕН")
                 settingsRepository.setOnboardingCompleted(completed = true)
+                // saveName(action.name)
                 push(OnboardingEvent.NavigateToMainScreen)
             }
         }

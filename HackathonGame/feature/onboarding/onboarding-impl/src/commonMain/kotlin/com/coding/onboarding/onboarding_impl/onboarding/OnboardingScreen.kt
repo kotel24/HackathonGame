@@ -32,8 +32,8 @@ internal class OnboardingScreen : MviView<OnboardingAction, OnboardingEvent, Onb
         }
 
         OnboardingContent(
-            onClickToMainScreen = {
-                pushAction(OnboardingAction.ClickButtonToMainScreen)
+            onClickToMainScreen = { userName ->
+                pushAction(OnboardingAction.ClickButtonToMainScreen(userName))
             }
         )
     }
