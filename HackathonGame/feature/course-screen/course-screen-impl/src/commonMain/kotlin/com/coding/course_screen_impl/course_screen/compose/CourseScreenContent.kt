@@ -12,18 +12,33 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.coding.course_screen_impl.course_screen.compose.components.BackgroundColor
 import com.coding.course_screen_impl.course_screen.compose.components.SectionGroup
+import com.coding.course_screen_impl.course_screen.compose.components.TopBar
 import com.coding.course_screen_impl.course_screen.model.Section
 
 @Composable
 fun CourseScreenContent(
     sections: List<Section>
 ) {
+    var menuVisible by remember { mutableStateOf(false) }
+
     MaterialTheme {
-        Scaffold {
+        Scaffold(
+            topBar = {
+                TopBar(
+                    onMenuClick = {
+                        menuVisible = !menuVisible
+                    }
+                )
+            }
+        ) {
             Column(
                 modifier = Modifier
                     .fillMaxSize()

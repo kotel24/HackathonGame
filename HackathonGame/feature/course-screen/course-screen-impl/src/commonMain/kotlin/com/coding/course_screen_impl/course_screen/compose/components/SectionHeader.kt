@@ -10,8 +10,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.CheckCircle
-import androidx.compose.material3.Checkbox
-import androidx.compose.material3.CheckboxDefaults
+import androidx.compose.material.icons.filled.Circle
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -29,6 +28,11 @@ val SectionItemNotCompletedColor = Color(0xFF9E9E9E)
 val BackgroundColor = Color(0xFF424242)
 val TextColor = Color.White
 
+val ScreenHorizontalPadding = 16.dp
+val HeaderIconSize = 24.dp
+val HeaderIconSpacing = 12.dp
+val HeaderStartInset = ScreenHorizontalPadding + HeaderIconSize + HeaderIconSpacing
+
 @Composable
 fun SectionHeader(
     title: String,
@@ -37,39 +41,40 @@ fun SectionHeader(
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(vertical = 8.dp, horizontal = 16.dp)
-            .background(SectionHeaderColor, RoundedCornerShape(8.dp))
-            .padding(12.dp),
+            .padding(vertical = 8.dp, horizontal = ScreenHorizontalPadding),
         verticalAlignment = Alignment.CenterVertically
     ) {
-        when (status) {
-            SectionStatus.COMPLETED -> Icon(
-                imageVector = Icons.Filled.CheckCircle,
-                contentDescription = "Completed",
-                tint = TextColor,
-                modifier = Modifier.size(24.dp)
-            )
-            SectionStatus.IN_PROGRESS -> Checkbox(
-                checked = false,
-                onCheckedChange = {},
-                colors = CheckboxDefaults.colors(uncheckedColor = TextColor),
-                modifier = Modifier.size(24.dp)
-            )
-            SectionStatus.NOT_STARTED -> Checkbox(
-                checked = false,
-                onCheckedChange = {},
-                colors = CheckboxDefaults.colors(uncheckedColor = TextColor),
-                modifier = Modifier.size(24.dp)
-            )
+        val icon = when (status) {
+            SectionStatus.COMPLETED -> Icons.Filled.CheckCircle
+            SectionStatus.IN_PROGRESS -> Icons.Filled.Circle
+            SectionStatus.NOT_STARTED -> Icons.Filled.Circle
         }
 
-        Spacer(modifier = Modifier.width(12.dp))
-
-        Text(
-            text = title,
-            color = TextColor,
-            fontSize = 18.sp,
-            fontWeight = MaterialTheme.typography.titleMedium.fontWeight
+        Icon(
+            imageVector = icon,
+            contentDescription = when (status) {
+                SectionStatus.COMPLETED -> "Completed"
+                SectionStatus.IN_PROGRESS -> "In progress"
+                SectionStatus.NOT_STARTED -> "Not started"
+            },
+            tint = TextColor,
+            modifier = Modifier.size(24.dp)
         )
+
+        Spacer(modifier = Modifier.width(HeaderIconSpacing))
+
+        Row(
+            modifier = Modifier
+                .background(SectionHeaderColor, RoundedCornerShape(12.dp))
+                .padding(12.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Text(
+                text = title,
+                color = TextColor,
+                fontSize = 18.sp,
+                fontWeight = MaterialTheme.typography.titleMedium.fontWeight
+            )
+        }
     }
 }

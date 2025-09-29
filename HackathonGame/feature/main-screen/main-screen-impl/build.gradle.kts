@@ -22,7 +22,7 @@ kotlin {
             implementation(projects.common.mvi.mviKoinVoyager)
             implementation(projects.core.recources)
             implementation(projects.feature.mainScreen.mainScreenApi)
-
+            implementation(projects.feature.courseScreen.courseScreenApi)
             implementation(libs.kotlinx.coroutines.core)
 
             implementation(libs.koin.core)

@@ -41,6 +41,7 @@ kotlin {
             implementation(projects.feature.mainScreen.mainScreenImpl)
             implementation(projects.feature.onboarding.onboardingApi)
             implementation(projects.feature.onboarding.onboardingImpl)
+            implementation(projects.feature.courseScreen.courseScreenImpl)
             implementation(projects.components.pet)
 
             implementation(compose.runtime)
