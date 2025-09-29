@@ -42,6 +42,8 @@ include(":feature:main-screen:main-screen-api")
 include(":feature:main-screen:main-screen-impl")
 include(":feature:onboarding:onboarding-api")
 include(":feature:onboarding:onboarding-impl")
+include(":feature:course-screen:course-screen-api")
+include(":feature:course-screen:course-screen-impl")
 
 // CORE
 include(":core:network")
