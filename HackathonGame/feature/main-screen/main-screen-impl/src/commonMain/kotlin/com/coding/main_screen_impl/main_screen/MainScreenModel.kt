@@ -15,6 +15,8 @@ internal class MainScreenModel(
 
     override suspend fun actor(action: MainScreenAction) =
         when (action) {
-            MainScreenAction.ClickButtonExample -> TODO()
+            MainScreenAction.ClickButtonOnCourse -> {
+                push(MainScreenEvent.NavigateToCourseScreen)
+            }
         }
 }

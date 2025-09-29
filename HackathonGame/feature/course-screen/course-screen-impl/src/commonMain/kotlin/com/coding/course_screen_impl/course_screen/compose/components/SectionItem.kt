@@ -22,8 +22,8 @@ fun SectionItem(
         fontSize = 16.sp,
         modifier = Modifier
             .fillMaxWidth()
-            .padding(start = 60.dp, end = 16.dp, top = 4.dp, bottom = 4.dp)
-            .background(backgroundColor, RoundedCornerShape(8.dp))
+            .padding(start = HeaderStartInset, end = ScreenHorizontalPadding, top = 4.dp, bottom = 4.dp)
+            .background(backgroundColor, RoundedCornerShape(12.dp))
             .padding(10.dp)
     )
 }

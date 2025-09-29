@@ -3,6 +3,7 @@ package com.coding.main_screen_impl.main_screen
 import androidx.compose.runtime.Composable
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
+import com.coding.featue.course_screen_api.CourseScreenApi
 import com.coding.main_screen_impl.main_screen.compose.MainScreenContent
 import com.coding.main_screen_impl.main_screen.mvi.MainScreenAction
 import com.coding.main_screen_impl.main_screen.mvi.MainScreenEvent
@@ -21,15 +22,20 @@ internal class MainScreen : MviView<MainScreenAction, MainScreenEvent, MainScree
         pushAction: (MainScreenAction) -> Unit
     ) {
         val navigator = LocalNavigator.currentOrThrow
+        val courseScreenApi = koinInject<CourseScreenApi>()
 
         eventFlow.collectEvent { event ->
             when (event) {
-                MainScreenEvent.NavigateToSomething -> TODO()
+                MainScreenEvent.NavigateToCourseScreen -> {
+                    navigator.push(courseScreenApi.courseScreen())
+                }
             }
         }
 
         MainScreenContent(
-            onPlayClick = {},
+            onCourseClick = {
+                pushAction(MainScreenAction.ClickButtonOnCourse)
+            },
             onDailyTasksClick = {}
         )
     }

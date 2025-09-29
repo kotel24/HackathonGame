@@ -194,12 +194,15 @@ fun PetInfo(
 
 // ---------- Кнопки действий ----------
 @Composable
-fun ActionButtons(onPlayClick: () -> Unit, onDailyTasksClick: () -> Unit) {
+fun ActionButtons(
+    onCourseClick: () -> Unit,
+    onDailyTasksClick: () -> Unit
+) {
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
         Spacer(Modifier.height(32.dp))
 
         Button(
-            onClick = onPlayClick,
+            onClick = onCourseClick,
             colors = ButtonDefaults.buttonColors(
                 containerColor = AppColors.ButtonPrimaryBg,
                 contentColor = AppColors.ButtonPrimaryText
@@ -207,7 +210,7 @@ fun ActionButtons(onPlayClick: () -> Unit, onDailyTasksClick: () -> Unit) {
             shape = RoundedCornerShape(12.dp),
             modifier = Modifier.fillMaxWidth(0.6f)
         ) {
-            Text("ИГРАТЬ")
+            Text("ИЗУЧАТЬ")
         }
 
         Spacer(Modifier.height(16.dp))
@@ -234,7 +237,7 @@ fun MainScreenContent(
     status: String = "Статус",
     streakDays: Int = 5,
     progress: Float = 0.6f, // прогресс (например 60%), будет приходить из БД
-    onPlayClick: () -> Unit = {},
+    onCourseClick: () -> Unit = {},
     onDailyTasksClick: () -> Unit = {}
 ) {
     var menuVisible by remember { mutableStateOf(false) }
@@ -261,7 +264,10 @@ fun MainScreenContent(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             PetInfo(petName, status, streakDays, progress)
-            ActionButtons(onPlayClick, onDailyTasksClick)
+            ActionButtons(
+                onCourseClick = onCourseClick,
+                onDailyTasksClick = onDailyTasksClick
+            )
         }
     }
 }
