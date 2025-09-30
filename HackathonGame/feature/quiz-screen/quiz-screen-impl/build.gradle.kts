@@ -23,6 +23,7 @@ kotlin {
             implementation(projects.core.recources)
             implementation(projects.feature.mainScreen.mainScreenApi)
             implementation(projects.feature.quizScreen.quizScreenApi)
+            implementation(projects.components.quiz)
 
             implementation(libs.kotlinx.coroutines.core)
 
