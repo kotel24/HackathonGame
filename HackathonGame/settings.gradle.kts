@@ -44,6 +44,8 @@ include(":feature:onboarding:onboarding-api")
 include(":feature:onboarding:onboarding-impl")
 include(":feature:course-screen:course-screen-api")
 include(":feature:course-screen:course-screen-impl")
+include(":feature:quiz-screen:quiz-screen-api")
+include(":feature:quiz-screen:quiz-screen-impl")
 
 // CORE
 include(":core:network")
@@ -52,3 +54,4 @@ include(":core:settings")
 
 // COMPONENTS
 include(":components:pet")
+include(":components:quiz")

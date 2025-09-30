@@ -42,7 +42,10 @@ kotlin {
             implementation(projects.feature.onboarding.onboardingApi)
             implementation(projects.feature.onboarding.onboardingImpl)
             implementation(projects.feature.courseScreen.courseScreenImpl)
+            implementation(projects.feature.quizScreen.quizScreenApi)
+            implementation(projects.feature.quizScreen.quizScreenImpl)
             implementation(projects.components.pet)
+            implementation(projects.components.quiz)
 
             implementation(compose.runtime)
             implementation(compose.foundation)

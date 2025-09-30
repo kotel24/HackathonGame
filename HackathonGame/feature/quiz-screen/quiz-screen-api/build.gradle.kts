@@ -17,24 +17,10 @@ kotlin {
 
     sourceSets {
         commonMain.dependencies {
-            implementation(projects.common.logger)
-            implementation(projects.common.mvi.mviGeneral)
-            implementation(projects.common.mvi.mviKoinVoyager)
-            implementation(projects.core.recources)
-            implementation(projects.feature.mainScreen.mainScreenApi)
-            implementation(projects.feature.courseScreen.courseScreenApi)
-            // delete it later
-            implementation(projects.feature.quizScreen.quizScreenApi)
-            implementation(libs.kotlinx.coroutines.core)
-
-            implementation(libs.koin.core)
-            implementation(libs.koin.compose)
-
             implementation(compose.runtime)
             implementation(compose.foundation)
             implementation(compose.material3)
             implementation(compose.ui)
-            implementation(compose.components.resources)
 
             implementation(libs.voyager.koin)
             implementation(libs.voyager.screenModel)
@@ -43,12 +29,11 @@ kotlin {
 }
 
 android {
-    namespace = "com.coding.game.feature.main_screen.impl"
+    namespace = "com.coding.game.feature.quiz_screen.api"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
     defaultConfig { minSdk = libs.versions.android.minSdk.get().toInt() }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_21
         targetCompatibility = JavaVersion.VERSION_21
     }
-    dependencies { debugImplementation(libs.compose.ui.tooling) }
 }

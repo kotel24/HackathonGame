@@ -10,6 +10,7 @@ import com.coding.main_screen_impl.main_screen.mvi.MainScreenEvent
 import com.coding.main_screen_impl.main_screen.mvi.MainScreenState
 import com.coding.mvi_koin_voyager.MviView
 import com.coding.mvi_koin_voyager.collectEvent
+import com.coding.quiz_screen_api.QuizScreenApi
 import kotlinx.coroutines.flow.Flow
 import org.koin.compose.koinInject
 
@@ -23,11 +24,14 @@ internal class MainScreen : MviView<MainScreenAction, MainScreenEvent, MainScree
     ) {
         val navigator = LocalNavigator.currentOrThrow
         val courseScreenApi = koinInject<CourseScreenApi>()
+        // delete it later
+        val quizScreenApi = koinInject<QuizScreenApi>()
 
         eventFlow.collectEvent { event ->
             when (event) {
                 MainScreenEvent.NavigateToCourseScreen -> {
-                    navigator.push(courseScreenApi.courseScreen())
+                    //navigator.push(courseScreenApi.courseScreen())
+                    navigator.push(quizScreenApi.quizScreen())
                 }
             }
         }

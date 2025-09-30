@@ -22,9 +22,9 @@ kotlin {
             implementation(projects.common.mvi.mviKoinVoyager)
             implementation(projects.core.recources)
             implementation(projects.feature.mainScreen.mainScreenApi)
-            implementation(projects.feature.courseScreen.courseScreenApi)
-            // delete it later
             implementation(projects.feature.quizScreen.quizScreenApi)
+            implementation(projects.components.quiz)
+
             implementation(libs.kotlinx.coroutines.core)
 
             implementation(libs.koin.core)
@@ -33,6 +33,7 @@ kotlin {
             implementation(compose.runtime)
             implementation(compose.foundation)
             implementation(compose.material3)
+            implementation(compose.materialIconsExtended)
             implementation(compose.ui)
             implementation(compose.components.resources)
 
@@ -43,7 +44,7 @@ kotlin {
 }
 
 android {
-    namespace = "com.coding.game.feature.main_screen.impl"
+    namespace = "com.coding.game.feature.quiz_screen.impl"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
     defaultConfig { minSdk = libs.versions.android.minSdk.get().toInt() }
     compileOptions {
