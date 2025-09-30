@@ -23,6 +23,8 @@ kotlin {
             implementation(projects.core.recources)
             implementation(projects.feature.mainScreen.mainScreenApi)
             implementation(projects.feature.courseScreen.courseScreenApi)
+            // delete it later
+            implementation(projects.feature.quizScreen.quizScreenApi)
             implementation(libs.kotlinx.coroutines.core)
 
             implementation(libs.koin.core)

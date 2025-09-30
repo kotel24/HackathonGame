@@ -31,6 +31,12 @@ internal class QuizScreen : MviView<QuizScreenAction, QuizScreenEvent, QuizScree
             }
         }
 
-        QuizScreenContent()
+        QuizScreenContent(
+            state = state,
+            onBackClick = { pushAction(QuizScreenAction.ClickButtonBackToMainScreen) },
+            onSelectAnswer = { index: Int -> pushAction(QuizScreenAction.SelectAnswer(index)) },
+            onNext = { pushAction(QuizScreenAction.ClickNext) },
+            onRestart = { pushAction(QuizScreenAction.ClickRestart) }
+        )
     }
 }
