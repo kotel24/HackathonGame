@@ -17,7 +17,7 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun ActionButtons(
     onCourseClick: () -> Unit,
-    onDailyTasksClick: () -> Unit
+    onPrizesClick: () -> Unit
 ) {
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
         Spacer(Modifier.height(32.dp))
@@ -37,15 +37,15 @@ fun ActionButtons(
         Spacer(Modifier.height(16.dp))
 
         Button(
-            onClick = onDailyTasksClick,
+            onClick = onPrizesClick,
             colors = ButtonDefaults.buttonColors(
                 containerColor = AppColors.ButtonSecondaryBg,
                 contentColor = AppColors.ButtonSecondaryText
             ),
             shape = RoundedCornerShape(12.dp),
-            modifier = Modifier.fillMaxWidth(0.8f)
+            modifier = Modifier.fillMaxWidth(0.5f)
         ) {
-            Text("ежедневные задания")
+            Text("ежедневные призы")
         }
     }
 }

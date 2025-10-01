@@ -43,8 +43,7 @@ internal class MainScreen : MviView<MainScreenAction, MainScreenEvent, MainScree
             progress = progress,
             onCourseClick = {
                 pushAction(MainScreenAction.ClickButtonOnCourse)
-            },
-            onDailyTasksClick = {}
+            }
         )
     }
 }
