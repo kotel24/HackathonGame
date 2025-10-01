@@ -8,6 +8,6 @@ import org.koin.dsl.module
 
 val mainScreenModule
     get() = module {
-        provideMviModel<MainScreen> { tag, _ -> MainScreenModel(tag) }
+        provideMviModel<MainScreen> { tag, _ -> MainScreenModel(tag, get()) }
         single<MainScreenApi> { MainScreenImpl() }
     }
