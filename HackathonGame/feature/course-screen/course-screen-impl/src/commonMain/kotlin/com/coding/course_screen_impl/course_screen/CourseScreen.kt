@@ -33,6 +33,9 @@ internal class CourseScreen : MviView<CourseScreenAction, CourseScreenEvent, Cou
         }
 
         CourseScreenContent(
+            onClickBack = {
+                pushAction(CourseScreenAction.ClickButtonToMainScreen)
+            },
             sections = sampleSections
         )
     }

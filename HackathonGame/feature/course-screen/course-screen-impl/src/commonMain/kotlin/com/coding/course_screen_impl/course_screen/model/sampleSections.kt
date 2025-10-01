@@ -13,7 +13,7 @@ val sampleSections = listOf(
     Section(
         title = "Раздел 2. Название",
         items = listOf(
-            Item(4, "Теория 2", false, isCompleted = false),
+            Item(4, "Теория 2", false, isCompleted = true),
             Item(5, "Тестирование 2", false, isCompleted = false)
         ),
         status = SectionStatus.IN_PROGRESS

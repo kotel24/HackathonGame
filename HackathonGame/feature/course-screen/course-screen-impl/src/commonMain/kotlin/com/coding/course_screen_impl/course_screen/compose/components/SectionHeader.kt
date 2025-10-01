@@ -63,15 +63,18 @@ fun SectionHeader(
 
         Spacer(modifier = Modifier.width(HeaderIconSpacing))
 
+        val textColor = if (status == SectionStatus.COMPLETED || status == SectionStatus.IN_PROGRESS) Color.White else Color(0xFF1919EF)
+        val containerColor = if (status == SectionStatus.COMPLETED || status == SectionStatus.IN_PROGRESS) Color(0xFF6088E4) else Color.White
+
         Row(
             modifier = Modifier
-                .background(SectionHeaderColor, RoundedCornerShape(12.dp))
+                .background(containerColor, RoundedCornerShape(12.dp))
                 .padding(12.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
             Text(
                 text = title,
-                color = TextColor,
+                color = textColor,
                 fontSize = 18.sp,
                 fontWeight = MaterialTheme.typography.titleMedium.fontWeight
             )
