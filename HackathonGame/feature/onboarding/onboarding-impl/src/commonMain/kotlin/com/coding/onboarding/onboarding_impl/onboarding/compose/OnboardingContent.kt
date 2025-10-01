@@ -1,6 +1,7 @@
 package com.coding.onboarding.onboarding_impl.onboarding.compose
 
 import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -10,9 +11,8 @@ import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
+import androidx.compose.ui.graphics.Color
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
@@ -20,13 +20,13 @@ internal fun OnboardingContent(
     onClickToMainScreen: (String) -> Unit
 ) {
     val pagerState = rememberPagerState { PAGES.size + 1 }
-    val scope = rememberCoroutineScope()
 
     MaterialTheme {
         Scaffold { paddingValues ->
             Column(
                 modifier = Modifier
                     .fillMaxSize()
+                    .background(Color(0xFF6088E4))
                     .padding(paddingValues)
             ) {
                 HorizontalPager(
@@ -39,22 +39,17 @@ internal fun OnboardingContent(
                         pageIndex < PAGES.size -> {
                             DefaultPage(
                                 pagerState = pagerState,
-                                page = PAGES[pageIndex],
-                                scope = scope
+                                page = PAGES[pageIndex]
                             )
                         }
                         else -> {
                             LastPage(
+                                pagerState = pagerState,
                                 onNameSubmitted = onClickToMainScreen
                             )
                         }
                     }
                 }
-
-                PageIndicator(
-                    pagerState = pagerState,
-                    modifier = Modifier.padding(vertical = 16.dp)
-                )
             }
         }
     }
