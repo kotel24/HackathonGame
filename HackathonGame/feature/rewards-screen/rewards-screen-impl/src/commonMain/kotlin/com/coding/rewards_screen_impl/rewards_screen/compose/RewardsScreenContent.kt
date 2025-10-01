@@ -4,6 +4,10 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
@@ -11,33 +15,25 @@ import androidx.compose.ui.unit.dp
 fun RewardsScreenContent(
     wonRewards: List<Reward>,
     availableRewards: List<Reward>,
-    onRewardClick: (Reward) -> Unit
+    onRewardClick: (Reward) -> Unit,
+    onBackClick: () -> Unit
 ) {
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(16.dp)
-    ) {
-        Text(
-            text = "Мои призы",
-            style = MaterialTheme.typography.headlineSmall
-        )
-        Spacer(modifier = Modifier.height(8.dp))
-        RewardList(
-            rewards = wonRewards,
-            onRewardClick = onRewardClick
+    var selectedList by remember { mutableStateOf("Полученные") }
+
+    Column(modifier = Modifier.fillMaxSize()) {
+        RewardsTopBarWithDrawer(
+            onBackClick = onBackClick, // пробрасываем клик назад
+            onMenuItemClick = { selected -> selectedList = selected }
         )
 
-        Spacer(modifier = Modifier.height(24.dp))
-
-        Text(
-            text = "Можно выиграть",
-            style = MaterialTheme.typography.headlineSmall
-        )
         Spacer(modifier = Modifier.height(8.dp))
-        RewardList(
-            rewards = availableRewards,
-            onRewardClick = onRewardClick
-        )
+
+        val rewardsToShow = when (selectedList) {
+            "Полученные" -> wonRewards
+            "Можно выиграть" -> availableRewards
+            else -> wonRewards
+        }
+
+        RewardList(rewards = rewardsToShow, onRewardClick = onRewardClick)
     }
 }

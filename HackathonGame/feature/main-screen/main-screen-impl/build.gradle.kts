@@ -25,6 +25,7 @@ kotlin {
             implementation(projects.feature.courseScreen.courseScreenApi)
             // delete it later
             implementation(projects.feature.quizScreen.quizScreenApi)
+            implementation(projects.feature.rewardsScreen.rewardsScreenApi)
             implementation(libs.kotlinx.coroutines.core)
 
             implementation(libs.koin.core)

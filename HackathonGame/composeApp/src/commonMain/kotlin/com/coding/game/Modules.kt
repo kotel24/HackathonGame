@@ -26,7 +26,7 @@ private val featureModules
     get() = listOf(
         mainScreenModule,
         onboardingModule,
-        rewardsScreenModule
+        rewardsScreenModule,
         courseScreenModule,
         quizScreenModule
     )

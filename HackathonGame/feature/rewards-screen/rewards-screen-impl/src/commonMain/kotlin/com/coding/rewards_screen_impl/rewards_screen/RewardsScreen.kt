@@ -5,6 +5,7 @@ import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
 import com.coding.mvi_koin_voyager.MviView
 import com.coding.mvi_koin_voyager.collectEvent
+import com.coding.rewards_screen_impl.rewards_screen.compose.Reward
 import com.coding.rewards_screen_impl.rewards_screen.compose.RewardsScreenContent
 import com.coding.rewards_screen_impl.rewards_screen.mvi.RewardsAction
 import com.coding.rewards_screen_impl.rewards_screen.mvi.RewardsEffect
@@ -32,11 +33,17 @@ internal class RewardsScreen : MviView<RewardsAction, RewardsEvent, RewardsState
 
         // Подключаем UI
         RewardsScreenContent(
-            wonRewards = state.earnedRewards,
-            availableRewards = state.lockedRewards,
+            wonRewards = listOf(
+                Reward(id = "1", title = "Приз 1", description = "Описание 1", imageUrl = "", isWon = true),
+                Reward(id="2", title="Приз 2", description="Описание 2", imageUrl="", isWon = true)
+            ),
+            availableRewards = listOf(
+                Reward(id="3", title="Приз 3", description="Описание 3", imageUrl="", isWon = false)
+            ),
             onRewardClick = { reward ->
                 pushAction(RewardsAction.OnRewardClick(reward.id))
-            }
+            },
+            onBackClick = { navigator.pop() }
         )
     }
 }
