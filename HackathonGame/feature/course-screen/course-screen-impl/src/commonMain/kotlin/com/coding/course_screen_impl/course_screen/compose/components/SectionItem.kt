@@ -1,6 +1,7 @@
 package com.coding.course_screen_impl.course_screen.compose.components
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -14,7 +15,8 @@ import com.coding.course_screen_impl.course_screen.model.Item
 
 @Composable
 fun SectionItem(
-    item: Item
+    item: Item,
+    onItemClick: (Item) -> Unit
 ) {
     val backgroundColor = if (item.isCompleted) Color(0xFF6088E4) else Color.White
     val textColor = if (item.isCompleted) Color.White else Color(0xFF1919EF)
@@ -26,6 +28,7 @@ fun SectionItem(
             .fillMaxWidth()
             .padding(start = HeaderStartInset, end = ScreenHorizontalPadding, top = 4.dp, bottom = 4.dp)
             .background(backgroundColor, RoundedCornerShape(12.dp))
+            .clickable { onItemClick(item) }
             .padding(10.dp)
     )
 }

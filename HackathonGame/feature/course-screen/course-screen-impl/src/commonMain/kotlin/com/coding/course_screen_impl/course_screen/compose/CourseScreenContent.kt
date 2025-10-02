@@ -23,7 +23,8 @@ import com.coding.course_screen_impl.course_screen.model.Section
 @Composable
 fun CourseScreenContent(
     sections: List<Section>,
-    onClickBack: () -> Unit
+    onClickBack: () -> Unit,
+    onNavigateToQuiz: (Int) -> Unit
 ) {
     MaterialTheme {
         Scaffold(
@@ -46,7 +47,14 @@ fun CourseScreenContent(
                     .verticalScroll(rememberScrollState())
             ) {
                 sections.forEach { section ->
-                    SectionGroup(section = section)
+                    SectionGroup(
+                        section = section,
+                        onItemClick = { item ->
+                            if (item.isTest) {
+                                onNavigateToQuiz(item.id)
+                            }
+                        }
+                    )
                     Spacer(modifier = Modifier
                         .height(16.dp)
                     )

@@ -26,7 +26,7 @@ fun DrawerMenu(onItemClick: (String) -> Unit) {
         horizontalArrangement = Arrangement.SpaceEvenly,
         verticalAlignment = Alignment.CenterVertically
     ) {
-        listOf("Игры", "Награды", "Мини-игры", "Профиль").forEach { item ->
+        listOf("Игры", "Награды", "Ежедневные задания").forEach { item ->
             TextButton(
                 onClick = { onItemClick(item) },
                 modifier = Modifier
