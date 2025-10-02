@@ -14,6 +14,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 
 @Composable
@@ -28,9 +29,9 @@ fun PageIndicator(
     ) {
         repeat(pagerState.pageCount) { iteration ->
             val color = if (pagerState.currentPage == iteration) {
-                MaterialTheme.colorScheme.primary
+                Color(0xFF1919EF)
             } else {
-                MaterialTheme.colorScheme.onSurface.copy(alpha = 0.3f)
+                Color(0xFFD9D9D9)
             }
             Box(
                 modifier = Modifier

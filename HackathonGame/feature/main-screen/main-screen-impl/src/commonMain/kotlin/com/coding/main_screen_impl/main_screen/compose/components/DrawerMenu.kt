@@ -21,19 +21,19 @@ fun DrawerMenu(onItemClick: (String) -> Unit) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .background(Color.LightGray)
+            .background(Color.Transparent)
             .padding(vertical = 4.dp), // тоньше
         horizontalArrangement = Arrangement.SpaceEvenly,
         verticalAlignment = Alignment.CenterVertically
     ) {
-        listOf("Игры", "Награды", "Мини-игры", "Профиль").forEach { item ->
+        listOf("Игры", "Награды", "Ежедневные задания").forEach { item ->
             TextButton(
                 onClick = { onItemClick(item) },
                 modifier = Modifier
-                    .border(1.dp, Color.DarkGray, RoundedCornerShape(50))
+                    .border(3.dp, Color.White, RoundedCornerShape(50))
                     .padding(horizontal = 8.dp)
             ) {
-                Text(item, color = Color.Black)
+                Text(item, color = Color.White)
             }
         }
     }

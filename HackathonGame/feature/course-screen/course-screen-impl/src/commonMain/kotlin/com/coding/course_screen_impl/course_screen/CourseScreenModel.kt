@@ -14,8 +14,11 @@ internal class CourseScreenModel(
 ) {
     override suspend fun actor(action: CourseScreenAction) {
         when (action) {
-            is CourseScreenAction.ClickButtonToMainScreen -> {
-                push(CourseScreenEvent.NavigateToMainScreen)
+            is CourseScreenAction.ClickButtonToBack -> {
+                push(CourseScreenEvent.NavigateBack)
+            }
+            is CourseScreenAction.ClickOnQuiz -> {
+                push(CourseScreenEvent.NavigateToQuizScreen(action.quizId))
             }
         }
     }

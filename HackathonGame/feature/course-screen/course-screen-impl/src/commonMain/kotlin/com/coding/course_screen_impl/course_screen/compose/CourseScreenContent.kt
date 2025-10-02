@@ -6,17 +6,14 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.coding.course_screen_impl.course_screen.compose.components.BackgroundColor
 import com.coding.course_screen_impl.course_screen.compose.components.SectionGroup
@@ -25,29 +22,39 @@ import com.coding.course_screen_impl.course_screen.model.Section
 
 @Composable
 fun CourseScreenContent(
-    sections: List<Section>
+    sections: List<Section>,
+    onClickBack: () -> Unit,
+    onNavigateToQuiz: (Int) -> Unit
 ) {
-    var menuVisible by remember { mutableStateOf(false) }
-
     MaterialTheme {
         Scaffold(
             topBar = {
                 TopBar(
-                    onMenuClick = {
-                        menuVisible = !menuVisible
-                    }
+                    onClickBack = onClickBack
                 )
-            }
-        ) {
+            },
+            containerColor = Color.Transparent
+        ) { innerPadding ->
             Column(
                 modifier = Modifier
                     .fillMaxSize()
-                    .statusBarsPadding()
-                    .background(BackgroundColor)
+                    .background(
+                        brush = Brush.linearGradient( // Создаем линейный градиент
+                            colors = listOf(Color(0xFF1919EF), Color(0xFF8694E4)),
+                        )
+                    )
+                    .padding(innerPadding)
                     .verticalScroll(rememberScrollState())
             ) {
                 sections.forEach { section ->
-                    SectionGroup(section = section)
+                    SectionGroup(
+                        section = section,
+                        onItemClick = { item ->
+                            if (item.isTest) {
+                                onNavigateToQuiz(item.id)
+                            }
+                        }
+                    )
                     Spacer(modifier = Modifier
                         .height(16.dp)
                     )

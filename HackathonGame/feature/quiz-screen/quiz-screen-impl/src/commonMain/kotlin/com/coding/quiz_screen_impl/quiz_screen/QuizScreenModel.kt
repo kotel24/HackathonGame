@@ -23,8 +23,8 @@ internal class QuizScreenModel(
 
     override suspend fun actor(action: QuizScreenAction) {
         when (action) {
-            is QuizScreenAction.ClickButtonBackToMainScreen -> {
-                push(QuizScreenEvent.NavigateToMainScreen)
+            is QuizScreenAction.ClickButtonToBack -> {
+                push(QuizScreenEvent.NavigateToBack)
             }
             is QuizScreenAction.SelectAnswer -> {
                 // Сохраняем выбранный индекс
