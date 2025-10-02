@@ -21,7 +21,6 @@ kotlin {
             implementation(projects.common.mvi.mviGeneral)
             implementation(projects.common.mvi.mviKoinVoyager)
             implementation(projects.core.recources)
-            implementation(projects.feature.mainScreen.mainScreenApi)
             implementation(projects.feature.quizScreen.quizScreenApi)
             implementation(projects.components.quiz)
 
