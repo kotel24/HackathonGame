@@ -21,12 +21,9 @@ kotlin {
             implementation(projects.common.mvi.mviGeneral)
             implementation(projects.common.mvi.mviKoinVoyager)
             implementation(projects.core.recources)
-            implementation(projects.feature.mainScreen.mainScreenApi)
-            implementation(projects.feature.courseScreen.courseScreenApi)
-            // delete it later
-            implementation(projects.feature.quizScreen.quizScreenApi)
-            implementation(projects.feature.rewardsScreen.rewardsScreenApi)
-            implementation(projects.components.pet)
+            implementation(projects.core.settings)
+            implementation(project(":feature:rewards-screen:rewards-screen-api"))
+
             implementation(libs.kotlinx.coroutines.core)
 
             implementation(libs.koin.core)
@@ -45,7 +42,7 @@ kotlin {
 }
 
 android {
-    namespace = "com.coding.game.feature.main_screen.impl"
+    namespace = "com.coding.game.feature.rewards_screen.impl"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
     defaultConfig { minSdk = libs.versions.android.minSdk.get().toInt() }
     compileOptions {

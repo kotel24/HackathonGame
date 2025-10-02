@@ -44,6 +44,8 @@ kotlin {
             implementation(projects.feature.courseScreen.courseScreenImpl)
             implementation(projects.feature.quizScreen.quizScreenApi)
             implementation(projects.feature.quizScreen.quizScreenImpl)
+            implementation(project(":feature:rewards-screen:rewards-screen-impl"))
+            implementation(project(":feature:rewards-screen:rewards-screen-api"))
             implementation(projects.components.pet)
             implementation(projects.components.quiz)
 
