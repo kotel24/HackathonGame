@@ -35,7 +35,6 @@ internal class MainScreen : MviView<MainScreenAction, MainScreenEvent, MainScree
                     //navigator.push(courseScreenApi.courseScreen())
                     //navigator.push(quizScreenApi.quizScreen())
                     navigator.push(rewardsScreenApi.rewardsScreen())
-                    navigator.push(courseScreenApi.courseScreen())
                 }
             }
         }

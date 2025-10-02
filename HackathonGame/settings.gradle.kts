@@ -48,6 +48,8 @@ include(":feature:course-screen:course-screen-api")
 include(":feature:course-screen:course-screen-impl")
 include(":feature:quiz-screen:quiz-screen-api")
 include(":feature:quiz-screen:quiz-screen-impl")
+include(":feature:theory:theory-screen-impl")
+include(":feature:theory:theory-screen-api")
 
 // CORE
 include(":core:network")
