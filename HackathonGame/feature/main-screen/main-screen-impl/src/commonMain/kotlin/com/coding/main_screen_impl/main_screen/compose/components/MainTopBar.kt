@@ -18,6 +18,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import org.jetbrains.compose.resources.painterResource
@@ -40,6 +42,7 @@ fun MainTopBar(onMenuClick: () -> Unit) {
                 Image(
                     painter = painterResource(Res.drawable.logo),
                     contentDescription = "Лого",
+                    colorFilter = ColorFilter.tint(Color.White),
                     modifier = Modifier
                         .size(118.dp)
                         .clip(CircleShape)
@@ -48,7 +51,7 @@ fun MainTopBar(onMenuClick: () -> Unit) {
                 Text(
                     "Ваш цифровой друг",
                     fontSize = 18.sp,
-                    color = AppColors.TopBarContent
+                    color = Color.White
                 )
             }
         },
@@ -57,13 +60,13 @@ fun MainTopBar(onMenuClick: () -> Unit) {
                 Icon(
                     painter = painterResource(Res.drawable.menu),
                     contentDescription = "Меню",
-                    tint = AppColors.TopBarContent
+                    tint = Color.White
                 )
             }
         },
         colors = TopAppBarDefaults.topAppBarColors(
-            containerColor = AppColors.TopBar,
-            titleContentColor = AppColors.TopBarContent
+            containerColor = Color.Transparent,
+            titleContentColor = Color.White
         )
     )
 }
