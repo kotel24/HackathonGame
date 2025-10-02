@@ -15,8 +15,11 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.drawscope.Stroke
+import androidx.compose.ui.graphics.drawscope.withTransform
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import org.jetbrains.compose.resources.painterResource
@@ -48,8 +51,8 @@ fun PetInfo(
         Spacer(Modifier.height(24.dp))
 
         Box(contentAlignment = Alignment.Center) {
-            val size = AppDimens.PetCircleSize
-            val targetSweep = remember(progress) { 300f * progress.coerceIn(0f, 1f) }
+            val circleSize = AppDimens.PetCircleSize
+            val targetSweep = remember(progress) { 360f * progress.coerceIn(0f, 1f) }
             val animatedSweep = remember { Animatable(0f) }
 
             LaunchedEffect(targetSweep) {
@@ -59,14 +62,29 @@ fun PetInfo(
                 )
             }
 
-            Canvas(modifier = Modifier.size(size)) {
-                val strokeWidth = (12.dp).toPx()
+            Canvas(modifier = Modifier.size(circleSize)) {
+                val strokeWidth = 12.dp.toPx()
+                val startAngle = -90f
+                val sweepAngle = animatedSweep.value
 
-                // Единственная дуга прогресса с анимацией
+                // Фон дуги если нужен
+//                drawArc(
+//                    color = Color.White.copy(alpha = 0.2f),
+//                    startAngle = startAngle,
+//                    sweepAngle = 360f,
+//                    useCenter = false,
+//                    style = Stroke(width = strokeWidth, cap = StrokeCap.Round)
+//                )
+
+                // Градиент для прогресса
+                val progressBrush = Brush.linearGradient(
+                    colors = listOf(Color(0xFF58FFFF), Color(0xFF1919EF)),
+                )
+
                 drawArc(
-                    color = AppColors.ProgressBarFg,
-                    startAngle = 270f,
-                    sweepAngle = animatedSweep.value,
+                    brush = progressBrush,
+                    startAngle = startAngle,
+                    sweepAngle = sweepAngle,
                     useCenter = false,
                     style = Stroke(width = strokeWidth, cap = StrokeCap.Round)
                 )
