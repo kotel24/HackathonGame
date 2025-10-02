@@ -9,6 +9,7 @@ import com.coding.main_screen_impl.mainScreenModule
 import com.coding.onboarding.onboarding_impl.onboardingModule
 import com.coding.rewards_screen_impl.rewardsScreenModule
 import com.coding.quiz_screen_impl.quizScreenModule
+import com.coding.theory_screen_impl.theoryScreenModule
 
 private val coreModules
     get() = listOf(
@@ -28,7 +29,8 @@ private val featureModules
         onboardingModule,
         rewardsScreenModule,
         courseScreenModule,
-        quizScreenModule
+        quizScreenModule,
+        theoryScreenModule
     )
 
 val appModules
