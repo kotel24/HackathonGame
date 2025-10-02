@@ -35,15 +35,24 @@ internal class MainScreen : MviView<MainScreenAction, MainScreenEvent, MainScree
                     //navigator.push(courseScreenApi.courseScreen())
                     //navigator.push(quizScreenApi.quizScreen())
                     navigator.push(rewardsScreenApi.rewardsScreen())
+                    navigator.push(courseScreenApi.courseScreen())
                 }
             }
         }
 
+        val petName = state.pet?.name ?: "Имя питомца"
+        val petExp = state.pet?.exp ?: 0
+        val status = "Возраст: $petExp"
+        val progress = ((petExp % 100).toFloat()) / 100f
+
         MainScreenContent(
+            petName = petName,
+            status = status,
+            progress = progress,
             onCourseClick = {
                 pushAction(MainScreenAction.ClickButtonOnCourse)
             },
-            onDailyTasksClick = {}
+            onPrizesClick = {}
         )
     }
 }

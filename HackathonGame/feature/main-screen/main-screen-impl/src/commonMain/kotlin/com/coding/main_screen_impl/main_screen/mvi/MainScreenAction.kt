@@ -4,4 +4,5 @@ import com.coding.mvi_general.MviAction
 
 internal sealed interface MainScreenAction : MviAction {
     data object ClickButtonOnCourse : MainScreenAction
+    data object ClickButtonOnDailyTasks : MainScreenAction
 }
